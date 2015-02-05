@@ -1,0 +1,23 @@
+<h1>Listing articles</h1>
+
+<%= link_to 'New article', new_article_path %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to 'Show', article_path(article) %></td>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <td><%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?'} %></td>
+    </tr>
+    <!-- so i tried to make articles an instance var here, but it shouldn't be -->
+    <!-- I want a link here that shows all the articles, this is all the articles, not initally actually, ugh, idk -->
+  <% end %>
+</table>
